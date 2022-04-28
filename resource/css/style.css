@@ -1,0 +1,804 @@
+/* 초기화 */
+
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+}
+
+body {
+    background-color: rgba(105, 180, 45, .1);
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+/* 메인 페이지 */
+
+.main-p .top {
+    width: 100%;
+}
+
+.main-p .top h1 img {
+    margin: 30px 630.5px 15px;
+}
+
+.main-p .top .main-background {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.main-p .main-background img {
+    width: 100%;
+    margin-top: -450px;
+    opacity: .7;
+    filter: blur(10px);
+    transition: .5s;
+    animation: dis 3s forwards;
+}
+
+.main-p .box {
+    width: 100%;
+    position: absolute;
+    top: 28%;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.main-p .item {
+    width: 32%;
+    border: 2px dotted #bbb;
+    border-top: none;
+    position: relative;
+    height: 550px;
+    text-align: center;
+}
+
+.main-p .item .circle {
+    position: absolute;
+    width: 400px; height: 400px;
+    left: 50%; top: 45%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-p .item .circle .icon {
+    width: 65px; height: 65px;
+    background-color: #fff;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-p .item .circle .icon img {
+    width: 60%;
+}
+
+.main-p .item .circle h2 {
+    color: #fff;
+    font-size: 40px;
+}
+
+.main-p .item .circle p:nth-of-type(1) {
+    color: #e2e2e2;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.main-p .item .circle p:nth-of-type(2) {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.main-p .item .circle a {
+    text-align: center;
+    color: #474747;
+    font-weight: 900;
+    font-size: 24px;
+    display: inline-block;
+    width: 100%; height: 70px;
+    line-height: 2.6;
+    animation: size 1s infinite;
+}
+
+@keyframes size {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+}
+
+.main-p .item .mini-circle {
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+}
+
+.main-p .item .mini-circle img {
+    width: 100%; height: 100%;
+    filter: blur(10px);
+    object-fit: cover;
+    transition: .5s;
+    animation: dis 3s forwards;
+}
+
+@keyframes dis {
+    to {filter: blur(0);}
+}
+
+.main-p .item .mini-circle.first {
+    width: 120px; height: 120px;
+    border: 2px dotted #bbb;
+    left: 50%; bottom: -60px;
+    transform: translateX(-50%);
+}
+
+.main-p .item .mini-circle.second {
+    width: 125px; height: 125px;
+    left: 15%; top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-p .item .mini-circle.second img {
+    width: 90%; height: 90%;
+    border-radius: 50%;
+}
+
+.main-p .item:nth-child(1) .circle {background-color: #93c11f;}
+.main-p .item:nth-child(2) .circle {background-color: #46b06b;}
+.main-p .item:nth-child(3) .circle {background-color: #3db7ba;}
+
+.main-p .item:nth-child(1) a {background-color: #d9ff79;}
+.main-p .item:nth-child(2) a {background-color: #93ffb9;}
+.main-p .item:nth-child(3) a {background-color: #91fdff;}
+
+.main-p .item:nth-child(1) .mini-circle.second {background-color: #93c11f;}
+.main-p .item:nth-child(2) .mini-circle.second {background-color: #46b06b;}
+.main-p .item:nth-child(3) .mini-circle.second {background-color: #3db7ba;}
+
+/* 공유 아이콘 */
+
+.visit {
+    background-color: #0003 !important;
+}
+
+.circle-menu {
+    position: fixed;
+    z-index: 10;
+    bottom: 1em; right: 1em;
+}
+
+.circle-menu .float-btn {
+    width: 3.5em; height: 3.5em;
+    border-radius: 50%;
+    background-color: #3db7ba;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu:checked ~ #circle-menu1 .float-btn,
+#share:checked ~ #circle-menu .float-btn {
+    box-shadow: 0 4px 8px 0 #0003;
+}
+
+.circle-menu .float-btn:active {
+    box-shadow: 0 4px 8px 0 #0004;
+}
+
+.circle-menu .float-btn span {
+    width: 40%; height: 3px;
+    background-color: #fff;
+    transition: .35s;
+}
+
+.circle-menu .float-btn span:nth-child(2) {
+    margin: 5px 0;
+}
+
+#menu:checked ~ #circle-menu1 .float-btn span:nth-child(1) {transform: translateY(3px) rotate(45deg);}
+#menu:checked ~ #circle-menu1 .float-btn span:nth-child(2) {margin: 0; transform: translateX(-10px); opacity: 0;}
+#menu:checked ~ #circle-menu1 .float-btn span:nth-child(3) {transform: translateY(-3px) rotate(-45deg);}
+
+.circle-menu .float-btn img {
+    width: 70%;
+}
+
+.circle-menu::after {
+    content: ' ';
+    display: block;
+    width: 3em; height: 3em;
+    border-radius: 50%;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: -2;
+    background-color: #3db7ba;
+    transition: all .3s ease;
+}
+
+#menu:checked ~ #circle-menu1::after,
+#share:checked ~ #circle-menu::after {
+    transform: scale3d(5.5, 5.5, 1);
+    transition-timing-function: cubic-bezier(.68, 1.55, .265, 1);
+}
+
+.circle-menu .menu-item {
+    position: absolute;
+    top: 0.2em; right: 0.2em;
+    z-index: -1;
+    display: block;
+    color: #fff;
+    font-size: 12px;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 48px;
+    background-color: #0001;
+    transition: transform .3s ease, background .2s ease;
+}
+
+.circle-menu .menu-item:hover {
+    background-color: #0003;
+}
+
+.circle-menu .menu-item img {
+    width: 100%;
+}
+
+#menu:checked ~ #circle-menu1 .menu-item,
+#share:checked ~ #circle-menu .menu-item {
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#share:checked ~ #circle-menu .menu-item:nth-child(1) {
+    transform: translate3d(1em, -7em, 0);
+    animation: size1 1s;
+    animation-delay: .2s;
+}
+
+#share:checked ~ #circle-menu .menu-item:nth-child(2) {
+    transform: translate3d(-3.5em, -6.3em, 0);
+    animation: size2 1s;
+    animation-delay: .3s;
+}
+
+#share:checked ~ #circle-menu .menu-item:nth-child(3) {
+    transform: translate3d(-6.5em, -3.2em, 0);
+    animation: size3 1s;
+    animation-delay: .4s;
+}
+
+#share:checked ~ #circle-menu .menu-item:nth-child(4) {
+    transform: translate3d(-7em, 1em, 0);
+    animation: size4 1s;
+    animation-delay: .5s;
+}
+
+@keyframes size1 {
+    0% {transform: scale(1) translate3d(1em, -7em, 0);}
+    50% {transform: scale(1.2) translate3d(1em, -7em, 0);}
+    100% {transform: scale(1) translate3d(1em, -7em, 0);}
+}
+
+@keyframes size2 {
+    0% {transform: scale(1) translate3d(-3.5em, -6.3em, 0);}
+    50% {transform: scale(1.2) translate3d(-3.5em, -6.3em, 0);}
+    100% {transform: scale(1) translate3d(-3.5em, -6.3em, 0);}
+}
+
+@keyframes size3 {
+    0% {transform: scale(1) translate3d(-6.5em, -3.2em, 0);}
+    50% {transform: scale(1.2) translate3d(-6.5em, -3.2em, 0);}
+    100% {transform: scale(1) translate3d(-6.5em, -3.2em, 0);}
+}
+
+@keyframes size4 {
+    0% {transform: scale(1) translate3d(-7em, 1em, 0);}
+    50% {transform: scale(1.2) translate3d(-7em, 1em, 0);}
+    100% {transform: scale(1) translate3d(-7em, 1em, 0);}
+}
+
+/* 메뉴 아이콘 */
+
+.circle-menu.circle-menu-left {
+    right: auto;
+    left: 1em;
+}
+
+.circle-menu.circle-menu-left .float-btn {
+    background-color: #46b06b;
+}
+
+.circle-menu.circle-menu-left::after {
+    background-color: #46b06b;
+}
+
+#menu:checked ~ #circle-menu1 .menu-item:nth-child(1) {
+    transform: translate3d(-1em, -7em, 0);
+}
+
+#menu:checked ~ #circle-menu1 .menu-item:nth-child(2) {
+    transform: translate3d(3.5em, -6.3em, 0);
+}
+
+#menu:checked ~ #circle-menu1 .menu-item:nth-child(3) {
+    transform: translate3d(6.5em, -3.2em, 0);
+}
+
+#menu:checked ~ #circle-menu1 .menu-item:nth-child(4) {
+    transform: translate3d(7em, 1em, 0);
+}
+
+/* 푸터 */
+
+footer {
+    position: absolute;
+    left: 50%; bottom: 0;
+    transform: translateX(-50%);
+}
+
+footer p {
+    font-size: 18px;
+}
+
+/* 서브페이지 */
+
+.background {
+    height: 300px; width: 100%;
+    display: flex;
+}
+
+.background > * {
+    width: 50%;
+    height: 100%;
+}
+
+.background .text {
+    padding: 50px;
+    text-align: end;
+}
+
+.background p:nth-child(1) {
+    color: #e2e2e2;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.background p:last-child {
+    color: #fff; 
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.background h1 {
+    color: #fff;
+    font-weight: 900;
+}
+
+.background img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner {
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    
+    position: absolute;
+    left: 10%;
+    top: 25%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner p {
+    color: #fff !important;
+    margin: 0 !important; 
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.banner span {
+    width: 100%; height: 20px;
+    position: absolute;
+    top: 0;
+}
+
+
+/* 특산품 */
+
+.special-p .box {
+    display: flex;
+}
+
+.special-p .box > div {
+    width: 50%;
+}
+
+.special-p .box .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 200px;
+}
+
+.special-p .box h2 {
+    color: #93c11f;
+    font-size: 36px;
+    padding-top: 20px;
+    border-top: 3px solid #93c11f;
+}
+
+.special-p .box p {
+    font-size: 20px;
+    color: #474747;
+    font-weight: 900;
+}
+
+.map svg {
+    height: calc(100vh - 300px);
+}
+
+.map-area {
+    fill: #c5c5c5;
+    transition: .35s;
+    cursor: pointer;
+}
+
+.map-area text {
+    fill: #333;
+}
+
+.map-area:hover {
+    fill: #93c11f;
+}
+
+.descript {
+    opacity: 0;
+    transition: .5s;
+    transform: translateY(-50px);
+    pointer-events: none;
+}
+
+.map-area[data-area="거창군"]:hover ~ .descript[data-area="거창군"],
+.map-area[data-area="함양군"]:hover ~ .descript[data-area="함양군"],
+.map-area[data-area="산청군"]:hover ~ .descript[data-area="산청군"],
+.map-area[data-area="합천군"]:hover ~ .descript[data-area="합천군"],
+.map-area[data-area="남해군"]:hover ~ .descript[data-area="남해군"],
+.map-area[data-area="하동군"]:hover ~ .descript[data-area="하동군"],
+.map-area[data-area="밀양시"]:hover ~ .descript[data-area="밀양시"],
+.map-area[data-area="양산시"]:hover ~ .descript[data-area="양산시"],
+.map-area[data-area="거제시"]:hover ~ .descript[data-area="거제시"],
+.map-area[data-area="통영시"]:hover ~ .descript[data-area="통영시"],
+.map-area[data-area="고성군"]:hover ~ .descript[data-area="고성군"],
+.map-area[data-area="사천시"]:hover ~ .descript[data-area="사천시"],
+.map-area[data-area="창원시"]:hover ~ .descript[data-area="창원시"],
+.map-area[data-area="김해시"]:hover ~ .descript[data-area="김해시"],
+.map-area[data-area="창녕군"]:hover ~ .descript[data-area="창녕군"],
+.map-area[data-area="의령군"]:hover ~ .descript[data-area="의령군"],
+.map-area[data-area="진주시"]:hover ~ .descript[data-area="진주시"],
+.map-area[data-area="함안군"]:hover ~ .descript[data-area="함안군"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 이벤트 */
+
+.event-p .box {
+    display: flex;
+    padding: 0 70px;
+}
+
+.event-p .box .item {
+    width: calc(100vw / 3);
+    height: calc(100vh - 300px);
+    padding: 20px;
+}
+
+.event-p .box .item h2 {
+    color: #46b06b;
+}
+
+.event-p .box .item p {
+    color: #474747;
+    font-weight: 900;
+    font-size: 17px;
+}
+
+.event-p .box .item:nth-child(1) {
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.event-p .box .item:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 60px;
+}
+
+.event-p .box .item:nth-child(3) {
+    width: 45%;
+    display: flex;
+    align-items: center;
+}
+
+.att {
+    display: flex;
+    justify-content: space-between;
+}
+
+.att div {
+    width: 130px; height: 130px;
+    background: url(../img/border.png);
+    background-size: cover;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.att div span:nth-child(1) {
+    color: #909090;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.att div span:nth-child(2) {
+    font-size: 18px;
+    font-weight: 900;
+    color: orange;
+}
+
+.att div img {
+    width: 100%;
+}
+
+.att div .date {
+    position: absolute;
+    left: 50%; bottom: 20px;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 14px !important;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.game .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    font-size: 18px;
+}
+
+.game .info .bot {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn-hint {
+    background-color: #46b06b;
+    color: #fff;
+}
+
+.board {
+    display: grid;
+    height: 485px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.board .board-item {
+    position: relative;
+    height: 120px; width: 100px;
+    perspective: 1000px;
+    border-radius: 10px;
+}
+
+.board img {
+    width: 100%;
+}
+
+.board-item .front,
+.board-item .back {
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #000;
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: .35s;
+}
+
+.board-item .back {
+    padding: 0 10px;
+    transform: rotateY(180deg);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board-item .front img {
+    border-radius: 10px;
+    object-fit: cover;
+    height: 100%;
+}
+
+.board-item:not(.active) .front {transform: rotateY(-180deg);}
+.board-item:not(.active) .back {transform: rotateY(0deg);}
+
+.board-item.match {
+    border: 5px solid #afa;
+}
+
+.board-item.unmatch {
+    border: 5px solid #faa;
+}
+
+.area-name {
+    position: absolute;
+    left: 50%; bottom: 10px;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 5px 10px;
+    background-color: #0005;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* 후기 */
+
+.review-p .st0 {
+    fill: #aaa;
+}
+
+.review-p .box {
+    display: flex;
+    justify-content: center;
+}
+
+.review-p .box > div {
+    padding: 30px;
+    height: calc(100vh - 400px);
+}
+
+.review-p .box .item {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.review-p .box .item h2 {
+    color: #3db7ba;
+    font-size: 32px;
+}
+
+.review-p .box .item p {
+    color: #474747;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.review-p .box .item button {
+    align-self: flex-start;
+}
+
+.rate-box {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.rate-box label svg {
+    width: 35px; height: 35px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.rate-box label.half svg {
+    position: absolute;
+    width: 17.5px;
+}
+
+.rate-box input:checked ~ label svg polygon,
+.rate-box label:hover svg polygon,
+.rate-box label:hover ~ label svg polygon { fill: #3db7ba;  }
+
+.rate-box input:checked + label:hover svg polygon,
+.rate-box input:checked ~ label:hover svg polygon,
+.rate-box input:checked ~ label:hover ~ label svg polygon,
+.rate-box label:hover ~ input:checked ~ label svg polygon {
+    fill: #58fcff;
+}
+
+.review-p .box .list {
+    width: 50%;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.review-p .box .list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.review-p .box .list::-webkit-scrollbar-track {
+    background-color: #ddd;
+    border-radius: 30px;
+}
+
+.review-p .box .list::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border-radius: 30px;
+}
+
+.review-p .list-item img {
+    width: 112px; height: 112px;
+}
+
+.review-p .list-item .content {
+    display: flex;
+}
+
+.review-p .list-item svg {
+    width: 20px; height: 20px;
+}
+
+.review-p .list-item svg polygon {
+    fill: #3db7ba;
+}
+
+.review-p .list-item .text {
+    padding: 0 20px;
+}
+
+.review-p .list-item .text p {
+    margin: 0 !important;
+}
